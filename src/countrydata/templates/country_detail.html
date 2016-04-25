@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class='col-sm-6 col-sm-offset-3'>
+<h1>Form</h1>
+<form method = "POST" action="" enctype='multipart/form-data'>{% csrf_token %}
+	<h4>Country:  {% csrf_token %}</h4>
+  <select class="selectpicker" id='slctCountry' name='dropdown1'>
+    <option value= "">Select</option>
+    {% for countryname in queryset_country %}
+      <option value="{{ countryname }}">{{ countryname }}</option>
+    {% endfor %}
+  </select>
+
+	<h4>State:</h4>
+  <select class="selectpicker" id='slctState'>
+    <option value="">Select</option>
+  </select>
+
+	<h4>City:</h4>
+  <select class="selectpicker" id='slctCity'>
+    <option value="">Select</option>
+  </select>
+
+</form>
+</div>
+{% endblock content %}
